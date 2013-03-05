@@ -36,7 +36,7 @@ function init() {
 	key_count_global = 0; // Global variable
 	document.getElementById("username").onkeypress = function() {
 		key_count_global++;
-		setTimeout("lookup("+key_count_global+")", 1000);//Function will be called 1 second after user types anything. Feel free to change this value.
+		setTimeout("lookup("+key_count_global+")", 1000);//Function will be called 1 second after user types anything. 
 	}
 }
 window.onload = init; //or $(document).ready(init); - for jQuery
