@@ -12,6 +12,7 @@ if($_SESSION['isvalins'] == false)
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link href='./favicon.ico' rel='icon' type='image/x-icon' />
     <title>Install Course man software</title>
     <style type="text/css">
     body{
