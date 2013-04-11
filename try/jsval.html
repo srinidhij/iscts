@@ -1,0 +1,30 @@
+<html>
+<head><title>Validation of ip</title>
+<script src="jquery.min.js">
+</script>
+<script type="text/javascript">
+function init() {
+	key_count_global = 0; // Global variable
+	document.getElementById("username").onkeypress = function() {
+		key_count_global++;
+		setTimeout("lookup("+key_count_global+")", 1000);//Function will be called 1 second after user types anything. Feel free to change this value.
+	}
+}
+window.onload = init; //or $(document).ready(init); - for jQuery
+
+function lookup(key_count) {
+	if(key_count == key_count_global) { // The control will reach this point 1 second after user stops typing.
+		// Do the ajax lookup here.
+		var x = document.getElementById("username").value
+		document.getElementById("status_stop").innerHTML = x;
+	}
+}
+</script>
+</head>
+<body>
+	<form>
+		<input type="text" id="username"/>
+		<input type="submit" value="submit"/>
+		<p id="status_stop"></p>
+	</form>
+</body>
