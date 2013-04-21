@@ -68,7 +68,7 @@ if ($cfgfp == false)
 try{
 fwrite($cfgfp,$data);
 fclose($cfgfp);
-chown("./config.php",'www-data');
+//chown("./config.php",'_www');
 chmod("./config.php",0644);
 }
 catch(Exception $e)
@@ -77,5 +77,5 @@ catch(Exception $e)
     exit;
 }
 require_once('./createdb.php');
-echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">'; 
+//echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">'; 
 ?>

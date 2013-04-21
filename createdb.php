@@ -13,16 +13,11 @@ $dbcreatqry = 'CREATE DATABASE IF NOT EXISTS '.$CFG->dbname.' DEFAULT CHARACTER 
   DEFAULT COLLATE utf8_general_ci;';
 mysql_query($dbcreatqry,$con) or die(mysql_error());
 
-echo "Database ". $CFG->dbname." created\n";
+echo "<html><body><h1>Database ". $CFG->dbname." created";
 
-mysql_select_db($CFG->dbname,$con) or dir(mysql_error());
-
-$tablecreatqry = 'CREATE TABLE IF NOT EXISTS '.$CFG->prefix.'students (USN varchar(11) PRIMARY KEY,
-    name varchar(30) not null, 
-    semester int not null,
-    email varchar(50) not null);';
-echo $tablecreatqry;
- mysql_query($tablecreatqry,$con) or die(mysql_error()); 
 $_SESSION['dbdone'] = true;
-echo 'in create db';
+
+echo 'in create db </h1></body></html>';
+require 'getFile.php' 
+
 ?>

@@ -14,11 +14,12 @@ if($_SESSION['isvalins'] == false)
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <link href='./favicon.ico' rel='icon' type='image/x-icon' />
     <title>Install Course man software</title>
-    <style type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/flat-ui.css">
+    <!--<style type="text/css">
     body{
         background: #eeeeee;
     }
-    </style>
+    </style>-->
 </head>
 <body>
     <form action="install.php" method="post">
@@ -31,7 +32,7 @@ if($_SESSION['isvalins'] == false)
             <tr><td>Data root</td><td><input type="text" name="dataroot"/></td></tr>
             <tr><td>Table prefix</td><td><input type="text" name="prefix"/></td></tr>
             <tr><td>Admin Name</td><td><input type="text" name="admin"/></td></tr>
-            <tr><td><input type="submit" value="submit"/></td></tr>
+            <tr><td></td><td><input type="submit" class="btn btn-large btn-block btn-info" value="submit"/></td></tr>
         </table>
     </form>
 </body>

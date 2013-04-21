@@ -112,31 +112,6 @@ border-top: 1px solid #96d1f8;
 </head>
 <body>
 
-<div id="page-wrapper">
-  <div id="page" class="clearfix">
-    <div id="page-header" class="clearfix">
-      
-        <?php  
-echo <<<disp
-<img src="$CFG->wwwroot/pes_img/newlogo.png" /><a title="Go to pes home" href="http://pes.edu" ><img class="pes_logo" src="$CFG->wwwroot/pes_img/pesit-logo.png" /></a>
-disp;
- ?>
-        <div class="headermenu">
-        </div>
-      </div>
-    <div id="page-content">
-        <div id="region-main-box">
-            <div id="region-post-box">
-                 <div id="region-main-wrap">
-                    <div id="region-main">
-                        <div class="region-content">
-                           <?php echo '<h3  align="middle" style="font-family:calibre; font-size:18; padding:0px; color:#2E2E2E " >BULK USER EDITOR</h3><br/>' ?>
-                           
-                           <div class="adduser">
-                    		<div class="add2">         
-                               
-<?php
-echo <<<disp
 <p style="font-size:18;font-color:#2E2E2E;">
   Upload a excel sheet which contains student details in specified format 
 </p>
@@ -147,9 +122,6 @@ echo <<<disp
 <input class="button" type="submit" name="submit" value="Submit" />
 <a href="$CFG->wwwroot"><input class="button"  type="button" name="Cancel" value="Cancel"></a>
 </form>
-disp;
-
-?>
 
                              
 				</div>

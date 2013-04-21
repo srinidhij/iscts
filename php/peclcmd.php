@@ -18,14 +18,18 @@
 
 /**
  * @nodep Gtk
- */
+ */ 
+ini_set('include_path', '.:..:/Library/WebServer/Documents/iscts/php');
+/*
 if ('/usr/share/php' != '@'.'include_path'.'@') {
-    ini_set('include_path', '/usr/share/php');
+    //ini_set('include_path', '.');
     $raw = false;
 } else {
     // this is a raw, uninstalled pear, either a cvs checkout, or php distro
     $raw = true;
 }
+*/
+$raw = false;
 define('PEAR_RUNTYPE', 'pecl');
 require_once 'pearcmd.php';
 /*

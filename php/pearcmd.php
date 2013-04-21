@@ -25,13 +25,16 @@ define('PEAR_IGNORE_BACKTRACE', 1);
 /**
  * @nodep Gtk
  */
+ini_set('include_path', '.:..:/Library/WebServer/Documents/iscts/php');
+/*
 if ('/usr/share/php' != '@'.'include_path'.'@') {
-    ini_set('include_path', '/usr/share/php');
+    //ini_set('include_path', '.');
     $raw = false;
 } else {
     // this is a raw, uninstalled pear, either a cvs checkout, or php distro
     $raw = true;
-}
+}*/
+$raw = false;
 @ini_set('allow_url_fopen', true);
 if (!ini_get('safe_mode')) {
     @set_time_limit(0);
