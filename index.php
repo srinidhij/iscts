@@ -85,7 +85,7 @@ if(isset($_SESSION['dbdone']))
        -moz-box-shadow: 3px 3px 4px #000;
        -webkit-box-shadow: 3px 3px 4px #000;
        box-shadow: 10px 10px 4px #7D7D7D;
-       background-color:#FFC266;
+       background-color:#8DE28D;
        width:50%;
        height:auto;
        min-height:110px;
