@@ -29,34 +29,102 @@ $dbprefix = $CFG->prefix;
 
 $con = mysql_connect($dbhost,$dbuser,$dbpass) or die (mysql_error());
 mysql_select_db($dbname,$con) or die (mysql_error());  
-$query = "SELECT pass from ".$dbprefix."students WHERE USN='".$user."'";
-//echo $query.'<br/>';
-$result = mysql_query($query, $con) or die(mysql_error());
-while($row=mysql_fetch_array($result))
+if ($type == "student")
 {
-	$pass = $row['pass'];
-}
-$hashpass = hash_internal_user_password($passwd);
-if($pass === $hashpass)
-{
-	$_SESSION['user'] = $user;
-	echo 'success';	
-    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=studentHome.php">';    
-
-} 
-
-else
-{
-	$_SESSION['wrongpass'] = true;
-	if(!isset($_SESSION['attempts']))
+	$query = "SELECT pass from ".$dbprefix."students WHERE USN='".$user."'";
+	//echo $query.'<br/>';
+	$result = mysql_query($query, $con) or die(mysql_error());
+	while($row=mysql_fetch_array($result))
 	{
-		$_SESSION['attempts'] = 0;
+		$pass = $row['pass'];
+	}
+	$hashpass = hash_internal_user_password($passwd);
+	if($pass === $hashpass)
+	{
+		$_SESSION['user'] = $user;
+		echo 'success';	
+	    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=studentHome.php">';    
+
 	} 
+
 	else
 	{
-		$_SESSION['attempts'] += 1;
+		$_SESSION['wrongpass'] = true;
+		if(!isset($_SESSION['attempts']))
+		{
+			$_SESSION['attempts'] = 0;
+		} 
+		else
+		{
+			$_SESSION['attempts'] += 1;
+		}
+		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">';    
 	}
-	echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">';    
+}
+else if ($type == "faculty")
+{
+	$query = "SELECT pass from ".$dbprefix."faculty WHERE id='".$user."'";
+	//echo $query.'<br/>';
+	$result = mysql_query($query, $con) or die(mysql_error());
+	while($row=mysql_fetch_array($result))
+	{
+		$pass = $row['pass'];
+	}
+	$hashpass = hash_internal_user_password($passwd);
+	if($pass === $hashpass)
+	{
+		$_SESSION['user'] = $user;
+		echo 'success';	
+	    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=facultyHome.php">';    
+
+	} 
+
+	else
+	{
+		$_SESSION['wrongpass'] = true;
+		if(!isset($_SESSION['attempts']))
+		{
+			$_SESSION['attempts'] = 0;
+		} 
+		else
+		{
+			$_SESSION['attempts'] += 1;
+		}
+		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">';    
+	}
+}
+else
+{
+	$query = "SELECT pass from ".$dbprefix."admin WHERE id='".$user."'";
+	//echo $query.'<br/>';
+	$result = mysql_query($query, $con) or die(mysql_error());
+	while($row=mysql_fetch_array($result))
+	{
+		$pass = $row['pass'];
+	}
+	$hashpass = hash_internal_user_password($passwd);
+	if($pass === $hashpass)
+	{
+		$_SESSION['user'] = $user;
+		echo 'success';	
+	    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=adminHome.php">';    
+
+	} 
+
+	else
+	{
+		$_SESSION['wrongpass'] = true;
+		if(!isset($_SESSION['attempts']))
+		{
+			$_SESSION['attempts'] = 0;
+		} 
+		else
+		{
+			$_SESSION['attempts'] += 1;
+		}
+		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">';    
+	}
+
 }
 //echo 'User name : '.$user.'<br/>'.' password :'.$pass.'<br/>Type : '.$type.'<br/>';
 ?>
