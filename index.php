@@ -1,6 +1,8 @@
 <?php
 session_start();
 $_SESSION['isvalins'] = false;
+$iswrongpass = false;
+
 if (!file_exists('./config.php')) {
 	$_SESSION['isvalins'] = true;
     echo '<META HTTP-EQUIV="Refresh" Content="0; URL=getdata.php">'; 
@@ -10,10 +12,21 @@ if ($_SESSION['isloggedin'] == true)
 {
 	if($_SESSION['usrtype'] == "stud")
 		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=studentHome.php">'; 
+	die;
 }
 if(isset($_SESSION['dbdone']))
 {
 	echo 'Databases created';
+}
+if(isset($_SESSION['wrongpass']) && $_SESSION['wrongpass'] == true)
+{
+	$iswrongpass = true;
+	$wrongmsg = "Wrong password";
+	unset($_SESSION['wrongpass']);
+}
+else
+{
+	$iswrongpass = false;
 }
 ?>
 
@@ -50,7 +63,7 @@ if(isset($_SESSION['dbdone']))
 		border: 3px #A58C8C solid;
 		position: relative;
 		margin-left: 10%;
-		padding: 0.4%;
+		padding: 0.8%;
 		width: 80%;
 		float: center;
 		background: rgba(0,191,255,0.6);;
@@ -134,32 +147,40 @@ if(isset($_SESSION['dbdone']))
 	h3{
 		font-family: calibre;
 		font-size: 25;
-		font-color: #1919a3;
+		color: #1919a3;
 		text-shadow :0.08em 0.08em 0.08em #1919a3;
 	}
+	p.warning{
+		font-size: 20px;
+		font-family: verdana;
+		color:red;
+	}
 	</style>
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
-/*
-$(function () {
 
-    var check = new RegExp("[0-9][A-Z][A-Z][0-9][0-9][A-Z][A-Z][0-9][0-9][0-9]", "g");
+function validUSN() {
+	
+	//if($("#loginstud").is('checked'))
+	//{
+    	var check = new RegExp("[0-9][a-z][a-z][0-9][0-9][a-z][a-z][0-4][0-9][0-9]", "g");
 
-    $("#asdf").blur(function () {
-
-        var text = $("#asdf").val();
+        var text = $("#username").val();
 
         var match = check.exec(text);
 
         if (match == null)
-            $('#qwer').html('INVALID');
+            $('#status_stop').html('INVALID USN');
         
         else if (match[0] === text)
-            $('#qwer').html('VALID');
+            $('#status_stop').html('VALID USN');
+	//}
+ };
 
-    });
+$(function () {
 
-});*/
+	    $("#username").blur(validUSN);
+});/*
 function init() {
 	key_count_global = 0; // Global variable
 	document.getElementById("username").onkeypress = function() {
@@ -176,7 +197,7 @@ function lookup(key_count) {
 		if(x.length != 3 || x.charAt(0) != '1' || x.charAt(1) != 'b')
 		document.getElementById("status_stop").innerHTML = "<h5>Error</h5>";
 	}
-}
+}*/
 </script>
 </head>
 <body>
@@ -190,10 +211,12 @@ function lookup(key_count) {
 <div class="pagewrapper">
 
 	<div class="pageheader">
-		<h1 align="center">Welcome to ISCTS</h1>
-		<br/>
-		<h3 align="center"> DEPARTMENT OF ISE</h3>
+		<div style="float:left;padding:30px;">
+		<span><a href="index.php"><h1>ISCTS</h1></a></span></div>
+		<div style="float:center;">
+	<a style="margin-left:20%" href="pes.edu"><img src="images/pesit-logo.png"></img></a>
 	</div>
+</div>
 	<div class="userlogin">
 		<h2 align="center"> Login </h2>
 		<br/>
@@ -202,14 +225,19 @@ function lookup(key_count) {
 
 				<tr><td class="loginfo">Username</td><td><input type="text" name="username" id="username"/></td></tr>
 				<tr><td class="loginfo">Password</td><td><input type="password" name ="password"/></td></tr>
-				<tr><td class="radbut"><input type="radio" name="logintype" id ="loginstud" value="Student" checked> </td><td>Student</td></tr>
-				<tr><td class="radbut"><input type="radio" name="logintype" id ="loginfac" value="Faculty"></td><td> Faculty </td></tr>
-				<tr><td class="radbut"><input type="radio" name="logintype" id ="loginadm" value="Admin"></td><td> Admin </td></tr>
+				<tr><td class="radbut"><input type="radio" name="logintype" id ="loginstud" value="student" checked> </td><td>Student</td></tr>
+				<tr><td class="radbut"><input type="radio" name="logintype" id ="loginfac" value="faculty"></td><td> Faculty </td></tr>
+				<tr><td class="radbut"><input type="radio" name="logintype" id ="loginadm" value="admin"></td><td> Admin </td></tr>
 			</table>
 					<br/>
 					<input type= "submit" value="LOGIN" class="btn btn-large btn-block btn-info"/>
 				
-			<p id="status_stop"></p>
+			<p  class="warning" id="status_stop"><?php 
+				if ($iswrongpass == true)
+				{
+					echo $wrongmsg;
+				}
+			?></p>
 		</form>
 		<a style="padding-left:100px" href="./forgot.php">Forgot Password</a>
 	</div>

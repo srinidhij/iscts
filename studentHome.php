@@ -52,7 +52,9 @@ echo 'Logged in successfully as '.$_SESSION['user'];
   </li>  
   <li><a href="attendance.php">View Attendance</a></li>  
   <li><a href="marks.php">View Marks</a></li>  
-  <li><a href="centact.php">Contact</a></li>  
+  <li><a href="centact.php">Contact</a></li>
+    <li><a href="logout.php">Logout</a></li>
+  
 </ul>    <!--navigation does here-->  
     </div>  
   </div>  
@@ -131,6 +133,5 @@ echo 'Logged in successfully as '.$_SESSION['user'];
   </table>
 </div>
 </div>
-	<p><a href="logout.php">Click here to Logout</a></p>
 </body>
 </html>
