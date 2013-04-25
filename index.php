@@ -28,7 +28,7 @@ if(isset($_SESSION['dbdone']))
 if(isset($_SESSION['wrongpass']) && $_SESSION['wrongpass'] == true)
 {
 	$iswrongpass = true;
-	$wrongmsg = "Wrong password";
+	$wrongmsg = "Wrong username/password";
 	unset($_SESSION['wrongpass']);
 }
 else
@@ -42,7 +42,7 @@ else
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-	<link href='./favicon.ico' rel='icon' type='image/x-icon' />
+	<link href='images/favicon.ico' rel='icon' type='image/x-icon' />
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 	<title>Welcome to Course Manager</title>
@@ -133,34 +133,12 @@ $(function () {
 
 	    $("#username").blur(valid);
 	    $("#password").blur(valpass);
-});/*
-function init() {
-	key_count_global = 0; // Global variable
-	document.getElementById("username").onkeypress = function() {
-		key_count_global++;
-		setTimeout("lookup("+key_count_global+")", 1000);//Function will be called 1 second after user types anything. 
-	}
-}
-window.onload = init; //or $(document).ready(init); - for jQuery
-
-function lookup(key_count) {
-	if(key_count == key_count_global) { // The control will reach this point 1 second after user stops typing.
-		// Do the ajax lookup here.
-		var x = document.getElementById("username").value
-		if(x.length != 3 || x.charAt(0) != '1' || x.charAt(1) != 'b')
-		document.getElementById("status_stop").innerHTML = "<h5>Error</h5>";
-	}
-}*/
+});
 </script>
 </head>
-<body onload="init()">
-	<!--
-		<div class="header">
 
-		<span style="margin-left:10%">ISCTS</span>
-		<span style="margin-left:70%">you are not logged in </span>
-	</div>
--->
+<body onload="init()">
+
 <div class="pagewrapper">
 
 	<div class="pageheader">
@@ -182,8 +160,8 @@ function lookup(key_count) {
 				<tr><td class="radbut"><input type="radio" name="logintype" id ="loginfac" value="faculty"></td><td> Faculty </td></tr>
 				<tr><td class="radbut"><input type="radio" name="logintype" id ="loginadm" value="admin"></td><td> Admin </td></tr>
 			</table>
-					<br/>
-								<p  class="warning" id="status_stop"><?php 
+			<br/>
+				<p  class="warning" id="status_stop"><?php 
 				if ($iswrongpass == true)
 				{
 					echo $wrongmsg;
@@ -195,26 +173,32 @@ function lookup(key_count) {
 		</form>
 		<a style="padding-left:80px" href="./forgot.php">Forgot Password ?</a>
 	</div>
-	           	           <div class="notifcontainer">
-	           	           	<h3 style="padding-left:300px;">Notifications</h3>
+	           	<div class="notifdisp">    
+	            <h2 style="padding-left:300px;">Notifications</h2>
+
+					<marquee direction="up" height="400px" behaviour="scroll">
+	           	    <div class="notifcontainer">
 	           	                 <div class="block_public">
-                        <h5 class="name_ntc"><img class="arrow" src="http://localhost/onb/moodle/pes_img/arrow.png" />Welcome </h5></br>
-                        <p class="p_ntc">Please login to view your details</p>
+                        <h5 class="name_ntc"><img class="arrow" src="http://localhost/onb/moodle/pes_img/arrow.png" />Welcome </h5></br></br>
+                        <p class="p_ntc">Please login to view details</p>
                         </br>
                 </div>
-                	           	                 <div class="block_public">
-                        <h5 class="name_ntc"><img class="arrow" src="http://localhost/onb/moodle/pes_img/arrow.png" />Welcome </h5></br>
-                        <p class="p_ntc">Please login to view your details</p>
+                <div class="block_public">
+                        <h5 class="name_ntc"><img class="arrow" src="http://localhost/onb/moodle/pes_img/arrow.png" />Holiday </h5></br></br>
+                        <p class="p_ntc">Tomorrow is holiday for NO REASON</p>
                         </br>
                 </div>
 
-	           	                 <div class="block_public">
-                        <h5 class="name_ntc"><img class="arrow" src="http://localhost/onb/moodle/pes_img/arrow.png" />Welcome </h5></br>
-                        <p class="p_ntc">Please login to view your details</p>
+	           	<div class="block_public">
+                        <h5 class="name_ntc"><img class="arrow" src="http://localhost/onb/moodle/pes_img/arrow.png" />S.E Presentation </h5></br>
+                        </br><p class="p_ntc">S.E presentation is from 29 April.The schedules and details have been mailed</p>
                         </br>
                 </div>
 
             </div>
+        </marquee>
+    </div>
 </div>
+&nbsp;
 </body>
 </html>

@@ -4,14 +4,6 @@ require './config.php';
 $user = $_POST['username'];
 $passwd = $_POST['password'];
 $type = $_POST['logintype'];
-/*
-if($user=="abc" && $pass == "xyz")
-{
-	$_SESSION['user'] = $user;
-	//echo 'success';	
-    //echo '<META HTTP-EQUIV="Refresh" Content="0; URL=studentHome.php">';    
-
-}*/
 
 function hash_internal_user_password($password) 
 {
@@ -41,6 +33,7 @@ if ($type == "student")
 	$hashpass = hash_internal_user_password($passwd);
 	if($pass === $hashpass)
 	{
+		$_SESSION['usrtype'] = 'stud';
 		$_SESSION['user'] = $user;
 		echo 'success';	
 	    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=studentHome.php">';    

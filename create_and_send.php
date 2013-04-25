@@ -1,5 +1,5 @@
 <?php
-echo '<html><body><br/>jsdfjasdfkasdhf';
+echo '<html><body>';
 require_once 'reader.php';
 require_once "./php/Mail.php";
 require_once './config.php';
@@ -21,7 +21,6 @@ $facdata->setOutputEncoding('CP1251');
 //$data->setUTFEncoder('mb');
 /*
 **/
-echo '<p>asdfasdfasdf</p>';
 /***
 * By default rows & cols indeces start with 1
 * For change initial index use:
@@ -99,7 +98,6 @@ mysql_query("CREATE TABLE IF NOT EXISTS ".$factable."(
     email varchar(50) not null,
     mobile varchar(33),
     clist varchar(50))",$con) or die(mysql_error());
-echo '<br/>fhasdfkhs<br/>';
 
 $host = "ssl://smtp.gmail.com";        // Authentication for email id,
 $port = "465";
@@ -157,11 +155,11 @@ for ($i = 1; $i <= $studdata->sheets[0]['numRows']; $i++)
             'password' => $onbpass));
 
         $mail = $smtp->send($to, $headers, $body);
-        echo 'Done';
+        //echo 'Done';
         if (PEAR::isError($mail)) {
           echo($mail->getMessage());
          } else {
-          echo("Message successfully sent!");
+          echo "<h4>Created user ".$usr.", sent password to ".$email.'</h4>';
          }
    //mysql_query("INSERT INTO onb_user(confirmed,mnethostid,username,password,firstname,lastname,email) VALUES (1,1,'$usn','$password','$name',' ','$email')",$con) or die(mysql_error());
   //header("location:$CFG->wwwroot");    
@@ -210,7 +208,7 @@ for ($i = 1; $i <= $facdata->sheets[0]['numRows']; $i++)
         if (PEAR::isError($mail)) {
           echo($mail->getMessage());
          } else {
-          echo("Message successfully sent!");
+          echo "<h4>Created user ".$usr.", sent password to ".$email.'</h4>';
          }
    //mysql_query("INSERT INTO onb_user(confirmed,mnethostid,username,password,firstname,lastname,email) VALUES (1,1,'$usn','$password','$name',' ','$email')",$con) or die(mysql_error());
   //header("location:$CFG->wwwroot");    
