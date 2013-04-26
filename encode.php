@@ -7,7 +7,7 @@ function hash_internal_user_password($password)
     global $CFG;
     return md5($password.$CFG->passwordsaltmain);
 }
-$str = 'fac123';
+$str = 'example';
 echo hash_internal_user_password($str);
 $usn = 'sdfsdf';
 $subject = 'sdfsdf';

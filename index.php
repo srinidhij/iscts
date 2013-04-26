@@ -132,6 +132,9 @@ function valpass(){
 $(function () {
 
 	    $("#username").blur(valid);
+	    $("#loginstud").change(valid);
+	   	$("#loginfac").change(valid);
+	    $("#loginadm").change(valid);
 	    $("#password").blur(valpass);
 });
 </script>
@@ -171,7 +174,7 @@ $(function () {
 					<input id="submit" type= "submit" value="LOGIN" class="btn btn-large btn-block btn-info"/>
 				
 		</form>
-		<a style="padding-left:80px" href="./forgot.php">Forgot Password ?</a>
+		<a style="padding-left:80px" href="./forgot.html">Forgot Password ?</a>
 	</div>
 	           	<div class="notifdisp">    
 	            <h2 style="padding-left:300px;">Notifications</h2>

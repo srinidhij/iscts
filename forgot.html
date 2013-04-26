@@ -1,0 +1,47 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link href='images/favicon.ico' rel='icon' type='image/x-icon' />
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+	<title>Welcome to Course Manager</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+</script>
+<style type="text/css">
+div.gete{
+	border: 1px #bbbbbb solid;
+	background-color: #dddddd;
+	width:40%;
+	margin-left: 20%;
+	margin-right: 20%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	padding-left: 10%;
+}
+</style>
+</head>
+<body>
+	<div class="pagewrapper">
+		<h1 align="center">Forgot Password</h1>
+		<div class="gete">
+					<h3>Enter your Email ID</h3>
+		<form action="forgot.php" method="post">
+		<input type="text" placeholder="Email ID" name="emailp">
+		<br/>
+		<table>
+		<tr><td><input class="radbut" class="rad" type="radio" name="type" value="student"></td><td>Student</td></tr>
+		<tr><td><input class="radbut" type="radio" name="type" value="fac"></td><td>Faculty</td></tr>
+		<tr><td><input class="radbut" type="radio" name="type" value="admin"></td><td>Admin</td></tr>
+		</table>
+		<br/>
+		<input type="submit" value="submit" class="btn-large btn btn-info">
+	</form>
+	</div>
+	</div>
+</body>
+</html>
