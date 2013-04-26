@@ -93,21 +93,21 @@ td.radbut{
 	padding-left: 70px;
 }
 div.userlogin{
-	border: 2px #333385 solid;
+	border: 2px #49afcd solid;
 	height: 400px;
 	width:300px;
 	background: #DADAE6;
 	float: right;
 	/*margin:auto;*/
-	margin-top: 35px;
+	margin-top: 30px;
 	margin-right: 1.5%; 
-	padding-right: 25px;
-	padding-bottom: 25px;
-	padding-left: 35px;
-	padding-right: 40px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-left: 25px;
+	padding-right: 35px;
 	padding-top: 7px;
-	margin-left: 40px;
-	margin-right: 40px;
+	margin-left: 30px;
+	margin-right: 35px;
 }
 input.submit{
 	width: 150px;

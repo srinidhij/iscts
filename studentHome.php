@@ -25,7 +25,7 @@ echo 'Logged in successfully as '.$_SESSION['user'];
   <li><a href="geta.php">View Attendance</a></li>  
   <li><a href="marks.php">View Marks</a></li>
   <li><a href="#">View Profile</a></li>  
-  <li><a href="centact.php">Contact</a></li>
+  <li><a href="contact.php">Contact</a></li>
     <li><a href="logout.php">Logout</a></li>
   
 </ul>    <!--navigation does here-->  
