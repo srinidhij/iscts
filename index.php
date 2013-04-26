@@ -41,15 +41,16 @@ else
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/marquee.js"></script>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<link href='images/favicon.ico' rel='icon' type='image/x-icon' />
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 	<title>Welcome to Course Manager</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript">
-
+$('marquee').marquee(optionalClass);
 function valid() {
 	// Function to validate usernamr based on type of user 
 	if($("#loginstud").attr('checked') == 'checked')
@@ -179,7 +180,7 @@ $(function () {
 	           	<div class="notifdisp">    
 	            <h2 style="padding-left:300px;">Notifications</h2>
 
-					<marquee direction="up" height="400px" behaviour="scroll">
+					<marquee direction="up" height="400px" behaviour="scroll" onmouseover="this.stop()" onmouseout="this.start()">
 	           	    <div class="notifcontainer">
 	           	                 <div class="block_public">
                         <h5 class="name_ntc"><img class="arrow" src="http://localhost/onb/moodle/pes_img/arrow.png" />Welcome </h5></br></br>
@@ -194,7 +195,7 @@ $(function () {
 
 	           	<div class="block_public">
                         <h5 class="name_ntc"><img class="arrow" src="http://localhost/onb/moodle/pes_img/arrow.png" />S.E Presentation </h5></br>
-                        </br><p class="p_ntc">S.E presentation is from 29 April.The schedules and details have been mailed</p>
+                        </br><p class="p_ntc">S.E presentation is from 26th April.The schedules and details have been mailed</p>
                         </br>
                 </div>
 
