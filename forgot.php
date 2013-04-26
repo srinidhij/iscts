@@ -11,7 +11,7 @@ $emailid = $_POST['emailp'];
 function complex_random_string($length=null) 
 {
     $pool  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    $pool .= '`~!@#%^&*()_+-=[];,./<>?:{} ';
+    $pool .= '~!@#%^&*()_';
     $poollen = strlen($pool);
     mt_srand ((double) microtime() * 1000000);
     if ($length===null) {
@@ -31,7 +31,7 @@ function hash_internal_user_password($password)
 }
 
 
-$host = "ssl://plus.smtp.mail.yahoo.com";        // Authentication for email id,
+$host = "ssl://smtp.mail.yahoo.com";        // Authentication for email id,
 $port = "465";
 $username = "isctsise@yahoo.com"; 
 $onbpass = "@adminisctsISE";
@@ -41,7 +41,7 @@ $subject = "Hi! Your Reset Password ISCTS details are : ";
 $bodystart = "Your Username for ISCTS is : ";
 $bodymiddle="\nYour Password is: ";
 
-$tmp_pass = complex_random_string(rand(10,15));
+$tmp_pass = complex_random_string(rand(8,12));
 
 $bodyend = "\nPlease change your password after your first login.";
 
@@ -60,7 +60,6 @@ if ($type == 'student')
 	$usn = null;
 	$name = null;
 	$query = "SELECT USN,name FROM ".$dbprefix."students WHERE email='".$emailid."'";
-	//echo $query;
 	$result = mysql_query($query,$con);
 	if ($result)
 	{
@@ -69,24 +68,22 @@ if ($type == 'student')
 			$usn = $row['USN'];
 			$name = $row['name'];
 		}
-
-
 		if (!(($usn == '' or $usn==null) or ($name == '' or $name==null)))
 		{
-			echo $name;
 			$newhpass  = hash_internal_user_password($tmp_pass);
-			//echo $query;
 			$query =  "UPDATE ".$dbprefix."students SET pass='".$newhpass."' WHERE email='".$emailid."'";
+
 			mysql_query($query);
+	   		
 	   		$to = $emailid;
-	        //echo $to;
 	        $body ="Hello ".$name."\n".$bodystart.$usn.$bodymiddle.$tmp_pass.$bodyend;
+	        echo $body;
 	        $headers = array ('From' => $from,
 	          'To' => $to,
 	          'Subject' => $subject);
 	        $smtp = Mail::factory('smtp',
 	          array ('host' => $host,
-	            'port' => $port,
+	          	'port' => 465,
 	            'auth' => true,
 	            'username' => $username,
 	            'password' => $onbpass));
@@ -94,7 +91,7 @@ if ($type == 'student')
 	        $mail = Mail::factory("mail");
 	        try
 	        {
-	        	$mailt = $mail->send($to, $headers, $body);
+	        	$mailt = $smtp->send($to, $headers, $body);
 	        }
 	        catch (Exception $e)
 	        {
@@ -102,16 +99,19 @@ if ($type == 'student')
 	        }
 	        if (PEAR::isError($mailt)) 
 	        {
-	        	echo '<h1>Error occured while sendin mail</h1>';
+	        	echo '<h1>Error occured while sending mail</h1>';
 	            echo($mailt->getMessage());
 	        } 
 	        else 
 	        {
-	          echo "<h4>Success ".$usn.", sent password to ".$emailid.'</h4>';
+	          echo "<h4>Success ".$name.", sent password to ".$emailid.'</h4>';
 	        }
 	        echo 'H1';
 		}
-		header('location','index.php');
+		else {
+			echo '<h1> Wrong emailid</h1>';
+			die;
+		}
 	}
 }
 else if($type == 'fac')
