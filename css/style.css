@@ -1,5 +1,5 @@
 body{
-	background: #8AC;
+	background: #7a7a7a;
 }
 div.notifdisp{
 	margin-top: 20px;
@@ -8,13 +8,13 @@ div.notifdisp{
 	width:60%;
 }
 div.pagewrapper{
-	margin-top: 1%;
-	margin-left: 3%;
-	width: 94%;
+	margin-top: 2%;
+	margin-left: 2%;
+	width: 96%;
 	height: auto;
-	padding-top: 1%;
+	padding-top: 0.3%;
 	padding-bottom: 6%;
-	background: #D9E4F5;
+	background: #f8f8f8;
 	overflow:hidden;
 }
 div.header{
@@ -26,12 +26,12 @@ div.header{
 div.pageheader{
 	/*border: 2px #A58C8C solid;*/
 	position: relative;
-	margin-left: 2.5%;
-	padding: 0.8%;
-	width: 95%;
+	/*margin-left: 2.5%;*/
+	padding: 0.0%;
+	width: 100%;
 	padding-top: 1.2%;
 	float: center;
-	background: #FFFFFF;
+	background: #dddddd;
 }
 div.notifcontainer{
 	padding-top: 30px;
@@ -41,11 +41,12 @@ div.notifcontainer{
 
   h5.name_ntc
   {
+   color:#A31919;
    float:left; 
    font-family:anton; 
    text-align:left;
-   font-size: 20px;
-   padding:10px;
+   font-size: 19px;
+   padding:5px;
    margin:0px;
    padding-bottom:1px;
    color:#092256; 
@@ -53,24 +54,28 @@ div.notifcontainer{
    }
   p.p_ntc
   {
-   color:#020014;
-   font-family: calibre;
+   color:#005200;
+   font-family: lucida grande;
    padding:5px;
    padding-left: 20px;
    font-size: 16px;
    margin-left:15px;
    text-align:left;
   }
+  div.block_public:hover
+  {
+  	background-color: #C2D1FF;
+  }
   div.block_public
   {
-   
-   -moz-box-shadow: 3px 3px 4px #000;
-   -webkit-box-shadow: 3px 3px 4px #000;
-   box-shadow: 10px 10px 4px #7D7D7D;
-   background-color: #AFBDD9;
+  	border: 1px #666666 solid;
+   -moz-box-shadow: 1px 1px 2px #000;
+   -webkit-box-shadow: 1px 1px 2px #000;
+   box-shadow: 6px 6px 2px #7D7D7D;
+   background-color: #dedede;
    width:90%;
    height:auto;
-   min-height:110px;
+   padding-bottom: 5px;
    margin-left:15px;
    margin-top:15px;
    margin-right:15px;
@@ -78,14 +83,24 @@ div.notifcontainer{
    border-radius:20px;
    -webkit-border-radius:20px;
    -moz-border-radius:20px;
-   border:1px solid #AD3333;
+   /*border:1px solid #AD3333;*/
    }
 
 td.loginfo{
-	font-size: 22;
+	font-family: verdana;
+	color:#730000;
+	font-size: 24;
 	font-weight: bold;
 	padding-top: 1px;
 }
+td.radinfo{
+	font-family: helvetica;
+	color:#1947A3;
+	font-size: 28;
+	font-weight: bold;
+	padding-top: 12px;
+}
+
 td{
 	padding : 7px;
 }
@@ -93,16 +108,16 @@ td.radbut{
 	padding-left: 70px;
 }
 div.userlogin{
-	border: 2px #49afcd solid;
+	border: 1.8px #777777 solid;
 	height: 400px;
 	width:300px;
-	background: #DADAE6;
+	background: #dddddd;
 	float: right;
 	/*margin:auto;*/
 	margin-top: 30px;
 	margin-right: 1.5%; 
 	padding-right: 20px;
-	padding-bottom: 20px;
+	padding-bottom: 30px;
 	padding-left: 25px;
 	padding-right: 35px;
 	padding-top: 7px;
@@ -125,4 +140,26 @@ p.warning{
 	font-size: 10px;
 	font-family: verdana;
 	color:red;
+}
+.marquee{
+	-webkit-marquee-direction: backwards;
+-webkit-marquee-style: scroll;
+-webkit-marquee-speed: fast;
+-webkit-marquee-increment: small;
+-webkit-marquee-repetition: infinite;
+	white-space: nowrap;
+	overflow-y:-webkit-marquee;
+
+}
+a.forgot{
+	font-family: arial;
+	font-size: 20;
+	font-weight: bold;
+	padding-left: 30%;
+}
+a.forgot:hover{
+color:red;
+}
+table{
+	border: 2px #777777 solid;
 }

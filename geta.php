@@ -65,28 +65,33 @@ div.pagewrapper{
 </style>
 </head>
 <body>
-		<div class="navbar navbar-fixed-top">  
-  <div class="navbar-inner">  
-    <div class="container">  
-<ul class="nav">  
-  <li>  
-    <a class="brand" href="index.php">Home</a>  
-  </li>  
-  <li class="active"><a href="geta.php">View Attendance</a></li>  
-  <li><a href="marks.php">View Marks</a></li> 
-   <li><a href="#">View Profile</a></li>  
- 
-  <li><a href="contact.php">Contact</a></li>
-    <li><a href="logout.php">Logout</a></li>
-  
-</ul>    <!--navigation does here-->  
-    </div>  
-  </div>  
-</div>
-	<div class="pagewrapper">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="jingi.php"><em><strong>ICSTS</strong></em></a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right"><strong>
+              Logged in as <a href="userInfo.php" class="navbar-link"><?php echo $_SESSION['name'];?></strong></a> 
+              <a style = "padding-left:50px;" href = "logout.php" class="navbar-link"><strong>Logout</strong></a>
+            </p>
+            <ul class="nav">
+              <li><a href="studentHome.php"><strong>Home</strong></a></li>
+              <li><a href="about.php"><strong>About</strong></a></li>
+              <li><a href="contact.php"><strong>Contact</strong></a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <div class="pagewrapper" style="margin-top:60px;">
 	<div class="row">
 	<div class= "twelve columns centered">		
-	<table border="2">	
+	<table border="0">	
 	<thead><th>Subject</th>
 		<th>Classes Attended</th><th>Classes conducted</th><th>Percentage</th>
 		<tbody>

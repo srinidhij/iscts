@@ -23,16 +23,18 @@ $con = mysql_connect($dbhost,$dbuser,$dbpass) or die (mysql_error());
 mysql_select_db($dbname,$con) or die (mysql_error());  
 if ($type == "student")
 {
-	$query = "SELECT pass from ".$dbprefix."students WHERE USN='".$user."'";
+	$query = "SELECT pass,name from ".$dbprefix."students WHERE USN='".$user."'";
 	//echo $query.'<br/>';
 	$result = mysql_query($query, $con) or die(mysql_error());
 	while($row=mysql_fetch_array($result))
 	{
 		$pass = $row['pass'];
+		$name = $row['name'];
 	}
 	$hashpass = hash_internal_user_password($passwd);
 	if($pass === $hashpass)
 	{
+		$_SESSION['name'] = $name;
 		$_SESSION['usrtype'] = 'stud';
 		$_SESSION['user'] = $user;
 		echo 'success';	

@@ -138,7 +138,7 @@ for ($i = 1; $i <= $studdata->sheets[0]['numRows']; $i++)
   $usr=strtolower($usn);
   // echo "name: ".$usr." pass: ".$tmp_pass."\n";
    
-   mysql_query("INSERT INTO }password','$name','$sem','$email','$mobile','$clist')",$con) or die(mysql_error());
+   mysql_query("INSERT INTO ".$studtable."(USN,pass,name,semester,email,mobile,clist) VALUES('$usr','$password','$name','$sem','$email','$mobile','$clist')",$con) or die(mysql_error());
   
    $to = "$email";
         //echo $to;
