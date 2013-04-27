@@ -91,7 +91,7 @@ div.pagewrapper{
     <div class="pagewrapper" style="margin-top:60px;">
 	<div class="row">
 	<div class= "twelve columns centered">		
-	<table border="0">	
+	<table border="0" class="info">	
 	<thead><th>Subject</th>
 		<th>Classes Attended</th><th>Classes conducted</th><th>Percentage</th>
 		<tbody>

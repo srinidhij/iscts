@@ -159,7 +159,7 @@ $(function () {
   <!--  <div class="container">-->  
   	<div class="pageheader" style = "height:35px; margin-top:40px; padding-top:20px;">
 		<div style="text-align:center;">
-		<font style = "font-family: verdana; font-size:40px; font-weight:bold; color:#4D704D">Welcome to ISCTS</font>
+		<font style = "font-family: verdana; font-size:40px; font-weight:bold; color:#003300;">Welcome to ISCTS</font>
 		</div>
 		
 	</div>

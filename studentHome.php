@@ -34,6 +34,8 @@ $_SESSION['usrtype'] = "stud";
       }
     </style>
     <link href="okay_files/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -72,9 +74,7 @@ $_SESSION['usrtype'] = "stud";
         </div>
       </div>
     </div>
-
-
-
+    <div class="pagewrapper" style="margin-top:0px;padding:5px;padding-top:25px;">
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
@@ -127,7 +127,7 @@ $_SESSION['usrtype'] = "stud";
  
       <hr>
     </div><!--/.fluid-container-->
-
+  </div>
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

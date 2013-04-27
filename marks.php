@@ -104,7 +104,7 @@ div.pagewrapper{
 		echo '<div class="row">
 	<div class= "twelve columns centered">';
 		echo '<h3>Test '.$tests.'</h3>';
-		echo '<table border="2">	
+		echo '<table class="info" border="2">	
 		<thead><th>Subject</th>
 		<th>Marks Obtained</th><th>Max marks</th><th>Percentage</th>
 		<tbody>';

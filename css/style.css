@@ -1,5 +1,5 @@
 body{
-	background: #7a7a7a;
+	background-image: url('http://localhost/new/iscts/images/grey_wash_wall.png');
 }
 div.notifdisp{
 	margin-top: 20px;
@@ -14,13 +14,13 @@ div.pagewrapper{
 	height: auto;
 	padding-top: 0.3%;
 	padding-bottom: 6%;
-	background: #f8f8f8;
+	background-image: url('http://localhost/new/iscts/images/white_wall_hash.png');
 	overflow:hidden;
 }
 div.header{
 	height: 50px;
 	width:100%;
-	background: #eeeeee;
+	background-image: url('http://localhost/new/iscts/images/textured_paper.png');
 	padding-top: 10px;
 }
 div.pageheader{
@@ -31,7 +31,7 @@ div.pageheader{
 	width: 100%;
 	padding-top: 1.2%;
 	float: center;
-	background: #dddddd;
+	background-image: url('http://localhost/new/iscts/images/textured_paper.png');
 }
 div.notifcontainer{
 	padding-top: 30px;
@@ -56,6 +56,7 @@ div.notifcontainer{
   {
    color:#005200;
    font-family: lucida grande;
+   padding-top:2px: 
    padding:5px;
    padding-left: 20px;
    font-size: 16px;
@@ -64,7 +65,7 @@ div.notifcontainer{
   }
   div.block_public:hover
   {
-  	background-color: #C2D1FF;
+  	background-color: #C3D0F3;
   }
   div.block_public
   {
@@ -109,7 +110,7 @@ td.radbut{
 }
 div.userlogin{
 	border: 1.8px #777777 solid;
-	height: 400px;
+	height: auto;
 	width:300px;
 	background: #dddddd;
 	float: right;
@@ -160,6 +161,6 @@ a.forgot{
 a.forgot:hover{
 color:red;
 }
-table{
+table.info{
 	border: 2px #777777 solid;
 }
