@@ -2,7 +2,10 @@
 session_start();
 $_SESSION['isvalins'] = false;
 $iswrongpass = false;
-
+/**
+* Check whether configuation file exists.If it doesn't
+* redirect for installa
+*/
 if (!file_exists('./config.php')) {
 	$_SESSION['isvalins'] = true;
     echo '<META HTTP-EQUIV="Refresh" Content="0; URL=getdata.php">'; 
@@ -35,9 +38,8 @@ else
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<link href='images/favicon.ico' rel='icon' type='image/x-icon' />
@@ -49,7 +51,9 @@ else
 <script type="text/javascript">
 
 function valid() {
-	// Function to validate usernamr based on type of user 
+	/**  
+	* Function to validate usernamr based on type of user
+	*/
 	if($("#loginstud").attr('checked') == 'checked')
 	{	
 		$("#submit").removeAttr('disabled');
@@ -111,8 +115,11 @@ function valid() {
 	}
  };
 
-function valpass(){
-	
+function valpass()
+{
+	/**
+	* Function to check if password has been input
+	*/	
 	$('#status_stop').html('');	
 	$("#submit").removeAttr('disabled');
 
@@ -137,6 +144,7 @@ $(function () {
 
 <body onload="init()">
 
+  <!-- nav bar -->
   <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -170,8 +178,8 @@ $(function () {
 		<form action="./loginauth.php" method="post">
 			<table>
 
-				<tr><td class="loginfo">Username</td><td><input type="text" name="username" id="username"/></td></tr>
-				<tr><td class="loginfo">Password</td><td><input type="password" name ="password" id="password"/></td></tr>
+				<tr><td class="loginfo">Username</td><td><input type="text" name="username" id="username" placeholder="Username"/></td></tr>
+				<tr><td class="loginfo">Password</td><td><input type="password" name ="password" id="password" placeholder="Password"/></td></tr>
 				<tr><td class="radbut"><input type="radio" name="logintype" id ="loginstud" value="student" checked> </td><td class="radinfo">Student</td></tr>
 				<tr><td class="radbut"><input type="radio" name="logintype" id ="loginfac" value="faculty"></td><td class="radinfo"> Faculty </td></tr>
 				<tr><td class="radbut"><input type="radio" name="logintype" id ="loginadm" value="admin"></td><td class="radinfo"> Admin </td></tr>

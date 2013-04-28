@@ -10,17 +10,25 @@ function hash_internal_user_password($password)
     global $CFG;
     return md5($password.$CFG->passwordsaltmain);
 }
+
+/**
+* Obtain connection to database 
+*/
 global $CFG;
 $dbhost = $CFG->dbhost;
 $dbuser = $CFG->dbuser;
 $dbname = $CFG->dbname;
 $dbpass = $CFG->dbpass;
 $dbprefix = $CFG->prefix;
-//echo 'Database name : '.$dbname.'<br/>';
-//echo 'Username name : '.$user.'<br/>';
 
 $con = mysql_connect($dbhost,$dbuser,$dbpass) or die (mysql_error());
 mysql_select_db($dbname,$con) or die (mysql_error());  
+
+/**
+* Query usename and password based on 
+* the type of the user and check if the password matches 
+*/
+
 if ($type == "student")
 {
 	$query = "SELECT pass,name from ".$dbprefix."students WHERE USN='".$user."'";
@@ -37,6 +45,7 @@ if ($type == "student")
 		$_SESSION['name'] = $name;
 		$_SESSION['usrtype'] = 'stud';
 		$_SESSION['user'] = $user;
+		$_SESSION['isloggedin'] = true;
 		echo 'success';	
 	    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=studentHome.php">';    
 
@@ -68,7 +77,9 @@ else if ($type == "faculty")
 	$hashpass = hash_internal_user_password($passwd);
 	if($pass === $hashpass)
 	{
+		$_SESSION['usrtype'] = 'fac';
 		$_SESSION['user'] = $user;
+		$_SESSION['isloggedin'] = true;
 		echo 'success';	
 	    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=facultyHome.php">';    
 
@@ -101,6 +112,8 @@ else
 	if($pass === $hashpass)
 	{
 		$_SESSION['user'] = $user;
+		$_SESSION['usrtype'] = 'admin';
+		$_SESSION['isloggedin'] = true;
 		echo 'success';	
 	    echo '<META HTTP-EQUIV="Refresh" Content="0; URL=adminHome.php">';    
 

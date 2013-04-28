@@ -1,6 +1,9 @@
 <?php
 session_start();
-
+/**
+* Check in session if this is a valid installation
+* If valid continue else die
+*/
 if (!isset($_SESSION['isvalins']) || $_SESSION['isvalins'] == false)
 {
     echo 'Error invalid installation';
@@ -21,6 +24,10 @@ function complex_random_string($length=null) {
     }
     return $string;
 }
+/**
+* Get the input and create a config.php file 
+* This file holds all the configuration data
+*/
 $dbhost=$_POST['dbhost'];
 $dbname=$_POST['dbname'];
 $dbuser=$_POST['dbuser'];

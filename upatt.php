@@ -1,10 +1,10 @@
 <?php 
 session_start();
-if ($_SESSION['usrtype'] != 'adm' && $_SESSION['usrtype'] != 'fac')
-{
-	echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">';
-	die;
-}
+//if ($_SESSION['usrtype'] != 'adm' && $_SESSION['usrtype'] != 'fac')
+//{
+//	echo '<META HTTP-EQUIV="Refresh" Content="0; URL=index.php">';
+//	die;
+//}
 ?>
 <html>
 <head>

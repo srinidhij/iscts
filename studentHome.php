@@ -1,5 +1,8 @@
 <?php
 session_start();
+/**
+* Set-up session variables. 
+*/
 $_SESSION['isloggedin'] = true;
 $_SESSION['usrtype'] = "stud";
 ?>
@@ -128,7 +131,7 @@ $_SESSION['usrtype'] = "stud";
       <hr>
     </div><!--/.fluid-container-->
   </div>
-    <!-- Le javascript
+    <!-- javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="okay_files/jquery.js"></script>

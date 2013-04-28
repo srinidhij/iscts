@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+/**
+* Set-up session variabels
+*/
+
 $_SESSION['isloggedin'] = true;
 $_SESSION['usrtype'] = "stud";
 ?>
@@ -110,12 +115,12 @@ $_SESSION['usrtype'] = "stud";
             <div class="span4">
               <h2>Marks</h2>
               <p>Update the marks of the students who've taken up you courses </p>
-              <p><a href="upmarks.php" class="btn" href="#">Update marks »</a></p>
+              <p><a href="upmarks.php" class="btn">Update marks »</a></p>
             </div><!--/span-->
             <div class="span4">
               <h2>Attendance</h2>
               <p>Update the attendance for the courses you've been teaching </p>
-              <p><a href="upatt.php"class="btn" href="#">Update attendance »</a></p>
+              <p><a href="upatt.php" class="btn">Update attendance »</a></p>
             </div><!--/span-->
           </div><!--/row-->
           </div><!--/row-->
