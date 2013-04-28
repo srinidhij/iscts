@@ -201,8 +201,8 @@ $_SESSION['usrtype'] = "stud";
             </div><!--/span-->
             <div class="span4">
               <h2>Timetable</h2>
-              <p>View the timetable as applicable to your class <br>in general </p>
-              <p><a href="timetable.php"class="btn" href="#">View timetable »</a></p>
+              <p>View your assignment details <br/> &nbsp;</p>
+              <p><a href="assignment.php"class="btn" href="#">View Assignments »</a></p>
             </div><!--/span-->
           </div><!--/row-->
           </div><!--/row-->

@@ -164,3 +164,15 @@ color:red;
 table.info{
 	border: 2px #777777 solid;
 }
+table.info thead th 
+{
+	font-family: lucida grande;
+	font-size: 16px;
+}
+table.info tbody tr td {
+	font-weight: bold;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-family: arial;
+	font-size: 16px;
+}

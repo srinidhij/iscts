@@ -1,5 +1,4 @@
- <?php
-
+<?php
 	require './config.php';
 	session_start();
 	if ($_SESSION['usrtype'] != 'stud')
@@ -65,7 +64,7 @@ div.pagewrapper{
 </style>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -73,74 +72,70 @@ div.pagewrapper{
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="jingi.php"><em><strong>ICSTS</strong></em></a>
+          <a class="brand" href="jingi.php"><strong>ICSTS</strong></a>
           <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right"><strong>
-              Logged in as <a href="userInfo.php" class="navbar-link"><?php echo $_SESSION['name'];?></strong></a> 
-              <a style = "padding-left:50px;" href = "logout.php" class="navbar-link"><strong>Logout</strong></a>
+            <p class="navbar-text pull-right">
+              Logged in as <a href="userInfo.php" class="navbar-link"><strong><?php echo $_SESSION['name'];?></strong></a> <a style = "padding-left:50px;" href = "logout.php" class="navbar-link">logout</a>
             </p>
             <ul class="nav">
-              <li><a href="studentHome.php"><strong>Home</strong></a></li>
+              <li class="active"><a href="studentHome.php"><strong>Home</strong></a></li>
               <li><a href="about.php"><strong>About</strong></a></li>
               <li><a href="contact.php"><strong>Contact</strong></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
-    </div>	
-    <div class="pagewrapper" style="margin-top:60px;">
-	<div class="row">
-	<div class= "twelve columns centered">
+    </div>
 
+	<div class="pagewrapper">
+	<div class="row">
+	<div class= "twelve columns centered">		
+	<table border="2">	
+	<thead><th>Subject</th>
+		<th>Assignment question</th><th>Marks obtained</th><th>Max marks</th>
+		<tbody>
 <?php
-	echo '<h1>Hi '.$name.'</h1>';
-	echo '<h2>Your test scores  : </h2>';
-	echo '</div></div>';
+	echo '<h1>Welcome '.$name.'</h1>';
+	echo '<h2>Heres your assignment details : </h2>';
 	$length = sizeof($clistarr);
 	$flag = 0;
-	$ntest = 2;
-	for ($tests=1; $tests<=$ntest; $tests++)
-	{
-		echo '<div class="row">
-	<div class= "twelve columns centered">';
-		echo '<h3 style="padding-left:25%;">Test '.$tests.'</h3>';
-		echo '<table class="info" border="2">	
-		<thead><th>Subject</th>
-		<th>Marks Obtained</th><th>Max marks</th><th>Percentage</th>
-		<tbody>';
-
-		for ($i=0; $i<$length; $i++)
-		{ 
-		$query = "SELECT marks FROM ".$dbprefix."marks WHERE USN='".$user."' AND subject='".$clistarr[$i]."' AND test='t".$tests."'";
+	for ($i=0; $i<$length; $i++)
+	{ 
+		$query = "SELECT question,marks FROM ".$dbprefix."assignment WHERE USN='".$user."' AND subject='".$clistarr[$i]."'";
 		$prec = '';
 		$result = mysql_query($query,$con);
-		if($result)
+		if(sizeof($result) >= 1)
 		{
+			$ques = null;
+			$marks = null;
 			while($row=mysql_fetch_array($result))
 			{
-				$prec = $row['marks'];
+				$ques = $row['question'];
+				$marks = $row['marks'];
 				break;
 			}
-			$att = explode('/',$prec);
-			$pr  = round(floatval($att[0]/$att[1])*100,2);
-
-			if ($flag == 0)
+			if (!(($ques == '' or $ques==null) or ($marks == '' or $marks==null)))
 			{
-				$flag = 1;
-				echo '<tr class="even"><td><strong>'.$clistarr[$i].'</strong></td><td><strong>'.$att[0].'</strong></td><td><strong>'.$att[1].'</strong></td><td><strong>'.$pr.'</strong></td></tr>';
+				$att = explode('/',$marks);
+				if ($flag == 0)
+				{
+					$flag = 1;
+					echo '<tr class="even"><td>'.$clistarr[$i].'</td><td>'.$ques.'</td><td>'.$att[0].'</td><td>'.$att[1].'</td></tr>';
+				}
+				else 
+				{
+					$flag = 0;
+					echo '<tr class="odd"><td>'.$clistarr[$i].'</td><td>'.$ques.'</td><td>'.$att[0].'</td><td>'.$att[1].'</td></tr>';
+				}	
 			}
-			else 
-			{
-				$flag = 0;
-				echo '<tr class="even"><td><strong>'.$clistarr[$i].'</strong></td><td><strong>'.$att[0].'</strong></td><td><strong>'.$att[1].'</strong></td><td><strong>'.$pr.'</strong></td></tr>';
-			}	
 		}
 	}
-	echo '</tbody></table></div></div>';
-	}
-?>
 
+?>
+</tbody>
+</table>
 </div>
-&nbsp;
+</div>
+</div>
 </body>
 </html>

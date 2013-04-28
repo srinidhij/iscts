@@ -48,11 +48,12 @@
             <span class="icon-bar"></span>
           </button>
           <!--<a class="brand" href="#" >SE_PROJ</a>-->
-          <div class="nav-collapse collapse" style="margin-left:280px">
+          <div class="nav-collapse collapse" style="margin-left:80px">
             <ul class="nav">
-              <li class="active"><a href="jingi.php"><strong>ICSTS</strong></a></li>
-              <li class="active"><a href="about.php" style="margin-left:200px"><strong>About</strong></a></li>
-              <li class="active"><a href="contact.php" style="margin-left:200px"><strong>Contact</strong></a></li>
+              <li class="active"><a href="index.php" style="margin-left:150px"><strong>Home</strong></a></li>
+              <li class="active"><a href="jingi.php" style="margin-left:150px"><strong>ICSTS</strong></a></li>
+              <li class="active"><a href="about.php" style="margin-left:150px"><strong>About</strong></a></li>
+              <li class="active"><a href="contact.php" style="margin-left:150px"><strong>Contact</strong></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
