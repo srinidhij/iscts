@@ -11,7 +11,7 @@ $CFG->dbname='iscts';
 $CFG->dbuser='root';
 $CFG->dbpass='resistant';
 
-$CFG->wwwroot='http://localhost/iscsts';
+$CFG->wwwroot='http://localhost/new/iscts';
 $CFG->dataroot='http://localhost/iscsts/data';
 $CFG->prefix='iscts_';
 $CFG->admin='admin';
